@@ -7325,6 +7325,18 @@ html body .deep-thoughts-release-btn:disabled {
     playfield.addEventListener('pointerdown',e=>{ setBunnyTargetFromPointer(e.clientX); playfield.focus({preventScroll:true}); });
     window.addEventListener('keydown',e=>{
         if(!win || win.style.display==='none') return;
+
+        // Do not capture A/D while the user is typing in a form field.
+        // Previously, this global game listener called preventDefault(),
+        // which made the letters A and D impossible to enter in sticky notes
+        // and Pomodoro task inputs.
+        const target = e.target;
+        const isEditable = target && (
+            target.matches('input, textarea, [contenteditable="true"]') ||
+            target.isContentEditable
+        );
+        if(isEditable) return;
+
         if(e.key==='ArrowLeft' || e.key.toLowerCase()==='a'){keyLeft=true;e.preventDefault();}
         if(e.key==='ArrowRight' || e.key.toLowerCase()==='d'){keyRight=true;e.preventDefault();}
     });
