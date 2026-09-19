@@ -6504,7 +6504,7 @@ html body .deep-thoughts-release-btn:disabled {
 
 
         /* ─── VIRTUAL CORKBOARD / STICKY NOTES ─── */
-        const stickyStorageKey = 'cozy_virtual_corkboard_notes_v1';
+        const stickyStorageKey = 'cozy_virtual_corkboard_notes_v2';
         const stickyBoard = document.getElementById('stickyBoard');
         const stickyTrash = document.getElementById('stickyTrash');
         let stickyNotes = [];
@@ -6513,9 +6513,7 @@ html body .deep-thoughts-release-btn:disabled {
         let stickyZ = 10;
 
         const stickySeedNotes = [
-            { id: 'seed-1', text: 'just a tiny reminder that\nsomewhere in the world,\ni am thinking about you.', label: 'from me', x: 34, y: 58, r: -4, tone: 'pink', pin: '🐰' },
-            { id: 'seed-2', text: 'drink some water, silly.\nyou deserve to be taken\ncare of too.', label: 'from me', x: 197, y: 33, r: 3, tone: 'cream', pin: '🥕' },
-            { id: 'seed-3', text: 'leave me anything here.\na thought, a story, or\nsomething completely random.', label: 'from me', x: 365, y: 88, r: -2, tone: 'lilac', pin: '🍰' }
+            { id: 'seed-1', text: 'you can leave anything here..\ni might come by to\nread it =3=', label: 'from me', x: 12.2, y: 16.2, r: -4, tone: 'pink', pin: '🐰', created: new Date('2026-09-16T12:00:00').getTime() }
         ];
 
         function loadStickyNotes() {
